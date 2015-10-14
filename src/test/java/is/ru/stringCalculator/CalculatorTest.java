@@ -17,5 +17,6 @@ public class CalculatorTest {
 	@Test
 	public void testOneNumber() {
 		assertEquals(0, Calculator.add("0"));
+		assertEquals(3, Calculator.add("3"));
 	}
 }
