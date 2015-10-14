@@ -3,13 +3,18 @@ package is.ru.stringCalculator;
 public class Calculator {
 
 	public static int add(String text) {
-		if (text.equals("")) {
+		String delimiter = ",|\n";
+		String textNoDelimiter = text;
+		if (text.startsWith("//")) {
+			int index = text.indexOf("//") + 2;
+			delimiter = text.substring(index,index+1);
+			textNoDelimiter = text.substring(text.indexOf("\n")+1);
+		}
+		if (textNoDelimiter.equals("")) {
 			return 0;
-		} else if (text.contains(",")) {
-			String[] numbers = splitNumbers(text);
-			return sum(numbers);
 		} else {
-			return toInt(text);
+			String[] numbers = splitNumbers(textNoDelimiter, delimiter);
+			return sum(numbers);
 		}
 	}
 
@@ -17,8 +22,8 @@ public class Calculator {
 		return Integer.parseInt(number);
 	}
 
-	public static String[] splitNumbers(String numbers) {
-		return numbers.split(",|\n");
+	public static String[] splitNumbers(String numbers, String delimiter) {
+		return numbers.split(delimiter);
 	}
 
 	public static int sum(String[] numbers) {

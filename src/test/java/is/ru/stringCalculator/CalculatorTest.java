@@ -42,4 +42,10 @@ public class CalculatorTest {
 	public void testInputWithEmbededNewlineChar() {
 		assertEquals(7, Calculator.add("0\n2,5"));
 	}
+
+	@Test
+	public void testDifferentDelimiters() {
+		assertEquals(1+2+6, Calculator.add("//;\n1;2;6"));
+		assertEquals(12+6+9, Calculator.add("//%\n12%6%9"));
+	}
 }
