@@ -25,4 +25,10 @@ public class CalculatorTest {
 		assertEquals(2, Calculator.add("0,2"));
 		assertEquals(5, Calculator.add("3,2"));
 	}
+
+	@Test
+	public void testThreeNumbers() {
+		assertEquals(7, Calculator.add("0,2,5"));
+		assertEquals(13, Calculator.add("3,2,8"));
+	}
 }
