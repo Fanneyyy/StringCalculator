@@ -65,5 +65,12 @@ public class CalculatorTest {
 		}
 		assertNotNull(null, exception);
 		assertEquals("Negatives not allowed: -1,-4", exception.getMessage());
-	} 
+	}
+
+	@Test
+	public void testWhetherNumbersBiggerThenOneThousandAreIgnored() {
+		assertEquals(3+6, Calculator.add("//;\n3;2000;6"));
+		assertEquals(908, Calculator.add("//%\n1200%8%900"));
+		assertEquals(1+2+4, Calculator.add("1,2,3300,4,50000"));
+	}
 }

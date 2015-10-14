@@ -27,15 +27,17 @@ public class Calculator {
 
 	public static int sum(String[] numbers) {
 		int sum = 0;
+		int current = 0;
 		String negatives = "";
 		for (String number : numbers) {
-			if (toInt(number) < 0) {
+			current = toInt(number);
+			if (current < 0) {
 				if (notEmpty(negatives))  {
 					negatives += ",";
 				}
 				negatives += number;
-			} else {
-				sum += toInt(number);
+			} else if (current <= 1000) {
+				sum += current;
 			}
 		}
 		if (notEmpty(negatives)) {
