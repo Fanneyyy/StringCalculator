@@ -27,8 +27,16 @@ public class Calculator {
 
 	public static int sum(String[] numbers) {
 		int sum = 0;
+		String negatives = "";
 		for (String number : numbers) {
-			sum += toInt(number);
+			if (toInt(number) < 0) {
+				negatives += number+",";
+			} else {
+				sum += toInt(number);
+			}
+		}
+		if (negatives.length() > 0) {
+			throw new RuntimeException("Negatives not allowed: " + negatives.substring(0,negatives.length()-1));
 		}
 		return sum;
 	}
