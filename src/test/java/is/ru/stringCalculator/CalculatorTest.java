@@ -31,4 +31,10 @@ public class CalculatorTest {
 		assertEquals(7, Calculator.add("0,2,5"));
 		assertEquals(13, Calculator.add("3,2,8"));
 	}
+
+	@Test
+	public void testMoreThanThreeNumbers() {
+		assertEquals(15, Calculator.add("1,2,3,4,5"));
+		assertEquals(6, Calculator.add("0,1,1,1,1,1,1"));
+	}
 }
