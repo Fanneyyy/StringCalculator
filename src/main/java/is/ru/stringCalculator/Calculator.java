@@ -6,9 +6,8 @@ public class Calculator {
 		String delimiter = ",|\n";
 		String textNoDelimiter = text;
 		if (text.startsWith("//")) {
-			int index = text.indexOf("//") + 2;
-			delimiter = text.substring(index,index+1);
-			textNoDelimiter = text.substring(text.indexOf("\n")+1);
+			delimiter = findDelimiter(text);
+			textNoDelimiter = trimDelimiter(text);
 		}
 		if (textNoDelimiter.equals("")) {
 			return 0;
@@ -32,5 +31,14 @@ public class Calculator {
 			sum += toInt(number);
 		}
 		return sum;
+	}
+
+	public static String findDelimiter(String text) {
+		int index = text.indexOf("//") + 2;
+		return text.substring(index,index+1);
+	}
+
+	public static String trimDelimiter(String text) {
+		return text.substring(text.indexOf("\n")+1);
 	}
 }
