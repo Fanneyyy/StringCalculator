@@ -19,4 +19,10 @@ public class CalculatorTest {
 		assertEquals(0, Calculator.add("0"));
 		assertEquals(3, Calculator.add("3"));
 	}
+
+	@Test
+	public void testTwoNumbers() {
+		assertEquals(2, Calculator.add("0,2"));
+		assertEquals(5, Calculator.add("3,2"));
+	}
 }
