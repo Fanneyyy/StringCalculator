@@ -6,10 +6,18 @@ public class Calculator {
 		if (text.equals("")) {
 			return 0;
 		} else if (text.contains(",")) {
-			String[] numbers = text.split(",");
-			return Integer.parseInt(numbers[0]) + Integer.parseInt(numbers[1]);
+			String[] numbers = splitNumbers(text);
+			return toInt(numbers[0]) + toInt(numbers[1]);
 		} else {
-			return Integer.parseInt(text);
+			return toInt(text);
 		}
+	}
+
+	public static int toInt(String number) {
+		return Integer.parseInt(number);
+	}
+
+	public static String[] splitNumbers(String numbers) {
+		return numbers.split(",");
 	}
 }
