@@ -1,0 +1,8 @@
+#!/bin/bash
+echo "---- Cleaning Up ----"
+./bin/clean
+echo "---- Compiling ----"
+./bin/compile
+./bin/compile_tests
+echo "---- Testing ----"
+./bin/unit_test
