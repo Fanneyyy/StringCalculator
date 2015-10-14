@@ -18,7 +18,7 @@ public class Calculator {
 	}
 
 	public static String[] splitNumbers(String numbers) {
-		return numbers.split(",");
+		return numbers.split(",|\n");
 	}
 
 	public static int sum(String[] numbers) {

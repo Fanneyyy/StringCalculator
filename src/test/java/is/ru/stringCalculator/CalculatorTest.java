@@ -37,4 +37,9 @@ public class CalculatorTest {
 		assertEquals(15, Calculator.add("1,2,3,4,5"));
 		assertEquals(6, Calculator.add("0,1,1,1,1,1,1"));
 	}
+
+	@Test
+	public void testInputWithEmbededNewlineChar() {
+		assertEquals(7, Calculator.add("0\n2,5"));
+	}
 }
