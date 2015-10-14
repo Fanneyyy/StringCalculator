@@ -30,13 +30,16 @@ public class Calculator {
 		String negatives = "";
 		for (String number : numbers) {
 			if (toInt(number) < 0) {
-				negatives += number+",";
+				if (notEmpty(negatives))  {
+					negatives += ",";
+				}
+				negatives += number;
 			} else {
 				sum += toInt(number);
 			}
 		}
-		if (negatives.length() > 0) {
-			throw new RuntimeException("Negatives not allowed: " + negatives.substring(0,negatives.length()-1));
+		if (notEmpty(negatives)) {
+			throw new RuntimeException("Negatives not allowed: " + negatives);
 		}
 		return sum;
 	}
@@ -48,5 +51,12 @@ public class Calculator {
 
 	public static String trimDelimiter(String text) {
 		return text.substring(text.indexOf("\n")+1);
+	}
+
+	public static boolean notEmpty(String s) {
+		if (s.length() > 0) {
+			return true;
+		}
+		return false;
 	}
 }
