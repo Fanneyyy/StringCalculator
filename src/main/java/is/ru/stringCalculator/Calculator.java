@@ -22,8 +22,17 @@ public class Calculator {
 	}
 
 	public static String[] splitNumbers(String numbers, String delimiter) {
-		String splitter = ",|\n";
-        return numbers.replace(delimiter, ",").split(splitter);
+        String splitter = "\n|,";
+        String replaced = numbers.replaceAll(delimiter, ",");
+        String current = replaced.substring(replaced.indexOf(",")+1, replaced.indexOf(",")+2);
+        int count = 0;
+        while (current.equals(",")) {
+            count++;
+            splitter += ",";
+            current = replaced.substring(replaced.indexOf(",")+count+1,replaced.indexOf(",")+count+2);
+        }
+        replaced = replaced.replace(splitter, ",");
+        return replaced.split(splitter);
 	}
 
 	public static int sum(String[] numbers) {
@@ -48,16 +57,7 @@ public class Calculator {
 	}
 
 	public static String findDelimiter(String text) {
-        int startIndex = text.indexOf("//") + 2;
-        int endIndex = 0;
-        String first = text.substring(startIndex, startIndex+1);
-        String temp = "";
-        do {
-            temp = text.substring(startIndex+endIndex, startIndex+endIndex+1);
-            endIndex++;
-        } while (temp.equals(first));
-
-        return text.substring(startIndex,endIndex+1);
+        return "([^\\d])";
 	}
 
 	public static String trimDelimiter(String text) {

@@ -79,4 +79,10 @@ public class CalculatorTest {
 		assertEquals(1+2+3, Calculator.add("//***\n1***2***3"));
 		assertEquals(12+6+9, Calculator.add("//%%%%\n12%%%%6%%%%9"));
 	}
+
+	@Test
+	public void testMultipleDelimiters() {
+		assertEquals(1+2+3, Calculator.add("//*%\n2*1%3"));
+		assertEquals(6+6+6+9, Calculator.add("//%,&%\n6&6,6%9"));
+	}
 }
