@@ -24,12 +24,13 @@ public class Calculator {
 	public static String[] splitNumbers(String numbers, String delimiter) {
         String splitter = "\n|,";
         String replaced = numbers.replaceAll(delimiter, ",");
-        String current = replaced.substring(replaced.indexOf(",")+1, replaced.indexOf(",")+2);
+        int index = replaced.indexOf(",");
+        String current = replaced.substring(index+1, index+2);
         int count = 0;
         while (current.equals(",")) {
             count++;
             splitter += ",";
-            current = replaced.substring(replaced.indexOf(",")+count+1,replaced.indexOf(",")+count+2);
+            current = replaced.substring(index+count+1, index+count+2);
         }
         replaced = replaced.replace(splitter, ",");
         return replaced.split(splitter);
