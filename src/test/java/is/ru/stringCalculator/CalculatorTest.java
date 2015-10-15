@@ -73,4 +73,10 @@ public class CalculatorTest {
 		assertEquals(908, Calculator.add("//%\n1200%8%900"));
 		assertEquals(1+2+4, Calculator.add("1,2,3300,4,50000"));
 	}
+
+	@Test
+	public void testDelimitersOfAnyLength() {
+		assertEquals(1+2+3, Calculator.add("//***\n1***2***3"));
+		assertEquals(12+6+9, Calculator.add("//%%%%\n12%%%%6%%%%9"));
+	}
 }
