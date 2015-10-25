@@ -1,5 +1,6 @@
 #!/bin/bash
 echo "---- Cleaning Up ----"
+mkdir -p classes
 ./bin/clean
 echo "---- Compiling ----"
 ./bin/compile
